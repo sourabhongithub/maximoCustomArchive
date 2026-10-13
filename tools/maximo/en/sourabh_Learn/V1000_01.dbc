@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "script.dtd">
+
+<script author="Sourabh Jain" scriptname="customMxAttributes">
+	<description>changes to Maximo database</description>
+	<statements>
+
+		<specify_table_domain 
+			domainid="C_CRAFT" 
+			objectname="CRAFT" 
+			validationwhereclause=":C_CRAFT=CRAFT" 
+			listwhereclause="1=1" 
+			description="Custom Table domain with a list of Crafts" 
+		/>
+		
+		<drop_attributes object="TICKET">
+			<attrname name="C_CRAFT"/>
+		</drop_attributes>
+		<add_attributes object="TICKET">
+			<attrdef attribute="C_CRAFT" length="8" maxtype="UPPER" persistent="true" remarks="Custom Craft" required="false" sameasattribute="CRAFT" sameasobject="CRAFT" scale="0" searchtype="WILDCARD" title="Custom Craft" userdefined="true" domain="C_CRAFT" />			
+		</add_attributes>		
+
+		<freeform description="various">
+			<sql target="all">
+
+			</sql>
+		</freeform>
+	
+	</statements>
+</script>
